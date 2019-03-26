@@ -26,15 +26,19 @@ class USRIoTDevice extends stdClass
     function turnOn($port)
     {
         $this->sendCommand(0x02, (int)$port);
+        $this->readConnection();
+        sleep(1);
         $this->sendCommand(0x02, (int)$port);
-        $this->sendCommand(0x02, (int)$port);
+        $this->readConnection();
     }
 
     function turnOff($port)
     {
         $this->sendCommand(0x01, (int)$port);
+        $this->readConnection();
+        sleep(1);
         $this->sendCommand(0x01, (int)$port);
-        $this->sendCommand(0x01, (int)$port);
+        $this->readConnection();
     }
 
     function getPorts()
