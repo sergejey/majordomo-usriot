@@ -1,0 +1,56 @@
+
+ <!-- action usual -->
+ [#if DATA_SOURCE="usriot_devices" || DATA_SOURCE=""#]
+ <!-- table usriot_devices search -->
+ [#if VIEW_MODE="search_usriot_devices" || VIEW_MODE=""#]
+  [#inc usriot_devices_search_admin.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table usriot_devices search -->
+ <!-- table usriot_devices edit -->
+ [#if VIEW_MODE="edit_usriot_devices"#]
+   [#if ID!=""#]
+   [#if TITLE!=""#]<h4>[#TITLE#]</h4>[#endif TITLE#]
+<ul class="nav nav-tabs">
+  <li[#if TAB=""#] class="active"[#endif#]>
+   <a href="?data_source=<#DATA_SOURCE#>&view_mode=<#VIEW_MODE#>&id=<#ID#>&tab="><#LANG_GENERAL#></a>
+  </li>
+  <li[#if TAB="data"#] class="active"[#endif#]>
+   <a href="?data_source=<#DATA_SOURCE#>&view_mode=<#VIEW_MODE#>&id=<#ID#>&tab=data">&#060#LANG_DATA#&#062</a>
+  </li>
+</ul>
+&nbsp;<br/>
+   [#endif ID#]
+   [#if TAB=""#]
+    [#inc usriot_devices_edit_default.html#]
+   [#endif TAB#]
+   [#if TAB="data"#]
+    [#inc usriot_devices_edit_data.html#]
+   [#endif TAB#]
+ [#endif VIEW_MODE#]
+ <!-- / table usriot_devices edit -->
+ <!-- table usriot_devices view --> 
+ [#if VIEW_MODE="view_usriot_devices"#]
+   [#if TAB=""#]
+    [#inc usriot_devices_view_default.html#]
+   [#endif TAB#]
+ [#endif VIEW_MODE#]
+ <!-- / table usriot_devices view -->
+ [#endif DATA_SOURCE#]
+ <!-- action usual -->
+ [#if DATA_SOURCE="usriot_ports"#]
+ <!-- table usriot_ports search -->
+ [#if VIEW_MODE="search_usriot_ports" || VIEW_MODE=""#]
+  [#inc usriot_ports_search_admin.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table usriot_ports search -->
+ <!-- table usriot_ports edit -->
+ [#if VIEW_MODE="edit_usriot_ports"#]
+   [#inc usriot_ports_edit.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table usriot_ports edit -->
+ <!-- table usriot_ports view --> 
+ [#if VIEW_MODE="view_usriot_ports"#]
+   [#inc usriot_ports_view.html#]
+ [#endif VIEW_MODE#]
+ <!-- / table usriot_ports view -->
+ [#endif DATA_SOURCE#]
